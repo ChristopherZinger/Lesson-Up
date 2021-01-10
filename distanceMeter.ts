@@ -2,7 +2,7 @@ import { VectorType, DirectionsType, Vectors, DataType } from "./types.d";
 
 export class DistanceMeter {
   private dataVectors: VectorType[];
-  private currendDirection: DirectionsType = "N";
+  private currentDirection: DirectionsType = "N";
   private readonly directions: DirectionsType[] = ["N", "W", "S", "E"]; // directions in counter clockwise order
   private readonly orientationVectors: Vectors = {
     N: [0, 1],
@@ -22,7 +22,7 @@ export class DistanceMeter {
       const [vectorTurn, vectorValue] = el;
       this.setCurrentDirection(this.turn[vectorTurn]);
       const vectorDirection: VectorType = this.orientationVectors[
-        this.currendDirection
+        this.currentDirection
       ];
       return vectorDirection.map((i) => i * vectorValue) as VectorType;
     });
@@ -30,10 +30,10 @@ export class DistanceMeter {
 
   private setCurrentDirection(turnDirection: number): void {
     let newDirectionIndex =
-      this.directions.indexOf(this.currendDirection) + turnDirection;
+      this.directions.indexOf(this.currentDirection) + turnDirection;
     if (newDirectionIndex < 0) newDirectionIndex = this.directions.length - 1;
     if (newDirectionIndex >= this.directions.length) newDirectionIndex = 0;
-    this.currendDirection = this.directions[newDirectionIndex];
+    this.currentDirection = this.directions[newDirectionIndex];
   }
 
   public getFinalPoint(): VectorType {
