@@ -3,7 +3,7 @@
 
 ### Get started: 
 *install dependencies:*
->>> npm i
+> npm i
 
-*run script : *
->>> npm run start
+*run script :*
+> npm run start
