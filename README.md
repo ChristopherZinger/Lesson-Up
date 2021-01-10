@@ -1,9 +1,9 @@
 # Lesson-Up
-Lesson up 
 
-Get started: 
-install dependencies:
+
+### Get started: 
+*install dependencies:*
 >>> npm i
 
-run script : 
+*run script : *
 >>> npm run start
